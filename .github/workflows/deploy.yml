@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build site
+    name: Build and deploy site
     runs-on: ubuntu-latest
     steps:
       - name: Pull code
@@ -27,25 +27,16 @@ jobs:
         run: npm ci
       - name: Run build
         run: npm run build
-      - name: Upload output
+      - name: Archive output
         uses: actions/upload-artifact@v1
         with:
           name: public
           path: public
-  publish:
-    name: Publish to S3
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download output
-        uses: actions/download-artifact@v1
-        with:
-          name: public
-      - name: Set credentials
+      - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-      - name: Sync bucket
-        run: aws s3 sync public s3://stellj.es
+      - name: Deploy to S3
+        run: npm run deploy
