@@ -5,7 +5,6 @@
   "devDependencies": {
     "gatsby": "2.30.3",
     "gatsby-plugin-layout": "1.8.0",
-    "gatsby-plugin-s3": "0.3.8",
     "gatsby-plugin-sass": "3.0.0",
     "sass": "1.32.4",
     "react": "16.14.0",
@@ -14,7 +13,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "deploy": "gatsby-plugin-s3 deploy",
+    "deploy": "rsync --compress --delete --recursive --verbose public/ stellj.es:/home/public/stellj.es",
     "start": "gatsby develop"
   }
 }

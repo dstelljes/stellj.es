@@ -18,11 +18,10 @@ jobs:
       - name: Set up cache
         uses: actions/cache@v2
         with:
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: node-${{ hashFiles('package-lock.json') }}
           path: ~/.npm
           restore-keys: |
-            ${{ runner.os }}-node-
-            ${{ runner.os }}-
+            node-
       - name: Install dependencies
         run: npm ci
       - name: Run build
@@ -32,11 +31,17 @@ jobs:
         with:
           name: public
           path: public
-      - name: Set AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-      - name: Deploy to S3
+      - name: Set credentials
+        env:
+          SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
+          SSH_HOSTS: ${{ secrets.SSH_HOSTS }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          touch ~/.ssh/id_rsa
+          chmod 0600 ~/.ssh/id_rsa
+          echo "$SSH_CONFIG" > ~/.ssh/config
+          echo "$SSH_HOSTS" > ~/.ssh/known_hosts
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+      - name: Sync files
         run: npm run deploy
