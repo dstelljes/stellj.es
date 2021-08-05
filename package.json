@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "deploy": "rsync --compress --delete --recursive --verbose public/ stellj.es:/home/public/stellj.es",
+    "deploy": "rsync --compress --delete-delay --exclude .well-known --recursive --verbose public/ stellj.es:/home/public/stellj.es",
     "start": "gatsby develop"
   }
 }
