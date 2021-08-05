@@ -2,9 +2,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import styles from './default.module.scss'
+import * as styles from './default.module.scss'
 
-export default ({ children }) => {
+export default function DefaultLayout ({ children }) {
   const { site: { siteMetadata } } = useStaticQuery(graphql`
     query SiteMetadataQuery {
       site {

@@ -12,6 +12,8 @@ module.exports = {
       component: resolve('./src/layouts/default.js')
     }
   }, {
+    resolve: 'gatsby-plugin-react-helmet'
+  }, {
     resolve: 'gatsby-plugin-sass'
   }]
 }

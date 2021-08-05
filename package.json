@@ -3,13 +3,17 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "gatsby": "2.30.3",
-    "gatsby-plugin-layout": "1.8.0",
-    "gatsby-plugin-sass": "3.0.0",
-    "sass": "1.32.4",
+    "gatsby": "3.11.0",
+    "gatsby-cli": "3.11.0",
+    "gatsby-link": "3.11.0",
+    "gatsby-plugin-layout": "2.11.0",
+    "gatsby-plugin-react-helmet": "4.11.0",
+    "gatsby-plugin-sass": "4.11.0",
+    "gatsby-react-router-scroll": "4.11.0",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "react-helmet": "6.1.0"
+    "react-helmet": "6.1.0",
+    "sass": "1.37.5"
   },
   "scripts": {
     "build": "gatsby build",

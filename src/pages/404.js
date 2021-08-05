@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default () => (
-  <>
-    Page not found.
-  </>
-)
+export default function NotFoundPage () {
+  return (
+    <>
+      Page not found.
+    </>
+  )
+}
