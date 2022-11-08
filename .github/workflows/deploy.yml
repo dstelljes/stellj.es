@@ -31,6 +31,12 @@ jobs:
         with:
           name: public
           path: public
+      - name: Process substitutions
+        env:
+          PROXY_RULES: ${{ secrets.PROXY_RULES }}
+        run: |
+          envsubst '$PROXY_RULES' < public/.htaccess > public/.htaccess.sub
+          mv public/.htaccess.sub public/.htaccess
       - name: Set credentials
         env:
           SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
