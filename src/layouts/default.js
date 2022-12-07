@@ -1,31 +1,19 @@
-import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import { Helmet } from 'react-helmet'
+
+import { useSiteMetadata } from '../meta'
 
 import * as styles from './default.module.scss'
 
 export default function DefaultLayout ({ children }) {
-  const { site: { siteMetadata } } = useStaticQuery(graphql`
-    query SiteMetadataQuery {
-      site {
-        siteMetadata {
-          name
-        }
-      }
-    }
-  `)
+  const siteMetadata = useSiteMetadata()
 
   return (
-    <>
-      <Helmet defaultTitle={siteMetadata.name} titleTemplate={`${siteMetadata.name} | %s`} />
+    <div className={styles.container}>
+      <h1>
+        {siteMetadata.name}
+      </h1>
 
-      <div className={styles.container}>
-        <h1>
-          {siteMetadata.name}
-        </h1>
-
-        {children}
-      </div>
-    </>
+      {children}
+    </div>
   )
 }
