@@ -9,7 +9,7 @@ export default function DefaultLayout ({ children }) {
 
   return (
     <div className={styles.container}>
-      <h1>
+      <h1 className={styles.siteTitle}>
         {siteMetadata.name}
       </h1>
 

@@ -7,6 +7,15 @@
   box-sizing: inherit;
 }
 
+a {
+  color: lighten($blue, 10%);
+  text-underline-position: under;
+
+  &:hover {
+    color: lighten($blue, 20%);
+  }
+}
+
 h1 {
   font-size: 1.5em;
   font-weight: 300;
@@ -19,4 +28,5 @@ html {
   color: $white;
   font-family: $body-font-family;
   font-size: $base-size;
+  line-height: 1.6em;
 }
