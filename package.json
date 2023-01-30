@@ -3,12 +3,12 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "gatsby": "5.3.3",
-    "gatsby-cli": "5.3.1",
-    "gatsby-link": "5.3.1",
-    "gatsby-plugin-layout": "4.3.0",
-    "gatsby-plugin-sass": "6.3.1",
-    "gatsby-react-router-scroll": "6.3.0",
+    "gatsby": "5.5.0",
+    "gatsby-cli": "5.5.0",
+    "gatsby-link": "5.5.0",
+    "gatsby-plugin-layout": "4.5.0",
+    "gatsby-plugin-sass": "6.5.0",
+    "gatsby-react-router-scroll": "6.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "1.57.1"
