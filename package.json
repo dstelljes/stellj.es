@@ -11,7 +11,7 @@
     "gatsby-react-router-scroll": "6.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "1.57.1"
+    "sass": "1.58.0"
   },
   "scripts": {
     "build": "gatsby build",
