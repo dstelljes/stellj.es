@@ -22,7 +22,5 @@ ErrorDocument 404 /404/index.html
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-  RewriteRule ^/?(.well-known/(?:host-meta|webfinger))$ https://mastodon.stellj.es/$1 [L,R=301]
-
 $PROXY_RULES
 </IfModule>
