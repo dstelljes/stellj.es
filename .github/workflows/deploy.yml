@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 20.x
       - name: Set up cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           key: node-${{ hashFiles('package-lock.json') }}
           path: ~/.npm
@@ -27,7 +27,7 @@ jobs:
       - name: Run build
         run: npm run build
       - name: Archive output
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: public
           path: public
