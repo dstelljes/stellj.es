@@ -1,0 +1,35 @@
+:root {
+  --base-size: 18px;
+
+  --black: #212529;
+  --white: #f8f9fa;
+  --blue: #0074d9;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+a {
+  color: hsl(from var(--blue) h s calc(l * 1.1));
+  text-underline-offset: 0.25em;
+
+  &:hover {
+    color: hsl(from var(--blue) h s calc(l * 1.2));
+  }
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: inherit;
+  letter-spacing: -0.01em;
+}
+
+html {
+  background-color: var(--black);
+  box-sizing: border-box;
+  color: var(--white);
+  font-size: var(--base-size);
+  font-weight: 400;
+  line-height: 1.6em;
+}
