@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 400;
+  src: url("atkinson.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 700;
+  src: url("atkinsonb.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: italic;
+  font-weight: 700;
+  src: url("atkinsonbi.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: italic;
+  font-weight: 400;
+  src: url("atkinsoni.ttf") format("truetype");
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+a {
+  color: #0074d9;
+  text-underline-offset: 0.25em;
+
+  &:hover {
+    color: hsl(from #0074d9 h s calc(l * 1.2));
+  }
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: inherit;
+  letter-spacing: -0.01em;
+}
+
+html {
+  background-color: #212529;
+  box-sizing: border-box;
+  color: #f8f9fa;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 48em;
+  padding: 2em 1em;
+}
+
+.site-title {
+  margin-bottom: 3rem;
+}

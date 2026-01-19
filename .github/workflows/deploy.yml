@@ -1,0 +1,33 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull code
+        uses: actions/checkout@v6
+      - name: Set credentials
+        env:
+          SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
+          SSH_HOSTS: ${{ secrets.SSH_HOSTS }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          touch ~/.ssh/id_rsa
+          chmod 0600 ~/.ssh/id_rsa
+          echo "$SSH_CONFIG" > ~/.ssh/config
+          echo "$SSH_HOSTS" > ~/.ssh/known_hosts
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+      - name: Sync files
+        run: |
+          rsync --compress --delete-delay --recursive --verbose \
+            --exclude .editorconfig \
+            --exclude .git \
+            --exclude .github \
+            --exclude .well-known \
+            ./ stellj.es:/home/public/stellj.es
